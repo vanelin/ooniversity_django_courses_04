@@ -1,0 +1,95 @@
+.navbar-inverse {
+  background-color: #333333;
+}
+
+.header a, a:hover{
+  color: #f0ad4e;
+  text-decoration: none;
+}
+
+.header h1{
+  letter-spacing: 13px;
+  font-size: 300%;
+}
+
+.header p {
+  color: white !important;
+  font-size: 90%;
+  letter-spacing: 3px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #3b5998;
+}
+
+.nav-pills > li > a {
+  color: #fff;
+  font-size: 115%;
+}
+
+.nav-pills > li > a:hover {
+  background-color: #3b5998;
+}
+
+.navbar-inverse {
+  padding: 0.5%;
+}
+
+@media (max-width: 767px) {
+  .nav-pills > li {
+    float: none;
+  }
+
+  .nav-pills {
+    text-align: center;
+  }
+
+  .header {
+    text-align: center;
+  }
+}
+
+.clear {
+  clear:both;
+  height: 63px;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #333333;
+  color: #f0ad4e;
+  padding: 17px 0 18px 0;
+}
+
+.emotional {
+    font-style: italic;
+}
+
+#program-course-to-python {
+  text-align: center;
+}
+
+.entery-title-page2 {
+  text-align: center;
+}
+
+.position {
+  text-align: center;
+}
