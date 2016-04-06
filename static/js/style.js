@@ -1,3 +1,3 @@
 $("#link1").click(function(){
-window.location = "student_detail.html";
+window.location = "../student_detail";
 });

@@ -8,12 +8,16 @@
     <title>PyBursa Organizers </title>
     <meta name="description" content="Info about PyBursa organizers.">
     <meta name="keywords" content="Bursa PyBursa">
-    <link rel="icon" type="image/png" href="../static/images/django-icon.png" />
+    {% load staticfiles %}
+    <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
+    <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="../static/css/bootstrap.css" rel="stylesheet"> -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- Main Style -->
-    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,9 +49,9 @@
         </div>
           <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav nav-pills">
-              <li> <a href="index.html">Main</a> </li>
-              <li class="active"> <a href="contact.html">Contacts</a> </li>
-              <li> <a href="student_list.html">Students</a> </li>
+              <li> <a href="{% url 'index' %}">Main</a> </li>
+              <li class="active"> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li> <a href="{% url 'student_list' %}">Students</a> </li>
             </ul>
           </div>
         </div>
@@ -102,6 +106,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <!-- <script src="../static/js/bootstrap.js"></script> -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
