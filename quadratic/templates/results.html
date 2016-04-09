@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>PyBursa Description</title>
-    <meta name="description" content="PyBursa is the easiest way to learn how to code. It's fun, and you can do it with your friends.">
-    <meta name="keywords" content="Python Programming Beginners Advanced learning Bursa PyBursa">
+    <meta name="description" content="Quadratic">
     {% load staticfiles %}
     <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
     <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
@@ -50,10 +49,10 @@
           <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav nav-pills">
               <!-- <li class="active"> <a href="/">Main</a> </li> -->
-              <li class="active"> <a href="{% url 'index' %}">Main</a> </li>
+              <li> <a href="{% url 'index' %}">Main</a> </li>
               <li> <a href="{% url 'contact' %}">Contacts</a> </li>
               <li> <a href="{% url 'student_list' %}">Students</a> </li>
-              <li> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
+              <li class="active"> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
             </ul>
           </div>
         </div>
@@ -64,23 +63,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="entery-title">PyBursa teaches programming and web development</h1>
-          <h2 class="entery-title">Description</h2>
-          <div class="entery-content">
-            <div class="subheading">
-              <p class="lead emotional">With our courses you will learn Python programming through hands-on, interesting examples that are useful and fun! Launch your development career with a proven program, written by Python professionals. PyBursa.
-              </p>
-            </div>
-            <hr>
-            <h2 id="program-course-to-python">Program</h2>
-            <div class="lead emotional">
-              <p>
-                <span><b>Course 1:</b> Introduction to Python</span><br>
-                <span><b>Course 2:</b> Web Development with Python</span><br>
-                <span><b>Course 3:</b> Advanced Web Development with Django</span><br>
-              </p>
-            </div>
-          </div>
+          <h2> Квадратное уравнение a*x*x+b*x+c=0 </h2>
+          <ul>
+            <li>a = {{a.0}}<br />{{a.1}}</li>
+            <li>b = {{b.0}}<br />{{b.1}}</li>
+            <li>c = {{c.0}}<br />{{c.1}}</li>
+          </ul>
+          <div>{{result|linebreaksbr}}</div>
         </div>
       </div>
       <div class="clear"></div>
@@ -98,3 +87,16 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
