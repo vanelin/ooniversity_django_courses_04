@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa Organizers </title>
-    <meta name="description" content="Info about PyBursa organizers.">
-    <meta name="keywords" content="Bursa PyBursa">
+    <title>PyBursa Students</title>
+    <meta name="description" content="PyBursa students list">
     {% load staticfiles %}
     <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
     <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
@@ -50,8 +49,8 @@
           <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav nav-pills">
               <li> <a href="{% url 'index' %}">Main</a> </li>
-              <li class="active"> <a href="{% url 'contact' %}">Contacts</a> </li>
-              <li> <a href="{% url 'students:list_view' %}">Students</a> </li>
+              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li class="active"> <a href="{% url 'students:list_view' %}">Students</a> </li>
               <li> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
             </ul>
           </div>
@@ -63,37 +62,38 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="entery-title-page2">PyBursa organizers</h1>
+          <h1 class="entery-title-page2">List students PyBursa</h1>
           <hr>
-          <div class="row">
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Director</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Ivan Voloboev</li>
-                <li class="list-group-item">Skype: vanelin</li>
-                <li class="list-group-item">Email: voloboev@gmail.com</li>
-                <li class="list-group-item">Phone: 0673338778</li>
-              </ul>
-            </div>
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Founder</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Max Payne</li>
-                <li class="list-group-item">Skype: madmax</li>
-                <li class="list-group-item">Email: madmax@gmail.com</li>
-                <li class="list-group-item">Phone: 0669996666</li>
-              </ul>
-            </div>
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Manager</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Mary Monahova</li>
-                <li class="list-group-item">Skype: mary777</li>
-                <li class="list-group-item">Email: mary@gmail.com</li>
-                <li class="list-group-item">Phone: 0501346549</li>
-              </ul>
-            </div>
+          <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                  <thead>
+                      <tr>
+                          <th width="5%">#</th>
+                          <th>Surname Name</th>
+                          <th width="40%">Address</th>
+                          <th>skype</th>
+                          <th>Courses</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for item in students %}
+                      <tr>
+                          <td>{{ forloop.counter }}</td>
+                          <td><a href="{% url 'students:detail' item.id %}">
+                            {{ item.name }} {{ item.surname }}</a></td>
+                          <td>{{ item.address }}</td>
+                          <td>{{ item.skype }}</td>
+                          <td>
+                           {% for course in item.courses.all %}
+                          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+                          {% endfor %}
+                          </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
           </div>
+
         </div>
       </div>
       <div class="clear"></div>
@@ -109,5 +109,14 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- <script src="../static/js/bootstrap.js"></script> -->
     <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/style.js' %}"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+

@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa Organizers </title>
-    <meta name="description" content="Info about PyBursa organizers.">
-    <meta name="keywords" content="Bursa PyBursa">
+    <title>PyBursa detail info Student</title>
+    <meta name="description" content="Detail information about students">
     {% load staticfiles %}
     <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
     <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
@@ -50,8 +49,8 @@
           <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav nav-pills">
               <li> <a href="{% url 'index' %}">Main</a> </li>
-              <li class="active"> <a href="{% url 'contact' %}">Contacts</a> </li>
-              <li> <a href="{% url 'students:list_view' %}">Students</a> </li>
+              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li class="active"> <a href="{% url 'students:list_view' %}">Students</a> </li>
               <li> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
             </ul>
           </div>
@@ -63,40 +62,55 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="entery-title-page2">PyBursa organizers</h1>
+          <h1 class="entery-title-page2">{{ students.name }} {{ students.surname }}</h1>
           <hr>
-          <div class="row">
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Director</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Ivan Voloboev</li>
-                <li class="list-group-item">Skype: vanelin</li>
-                <li class="list-group-item">Email: voloboev@gmail.com</li>
-                <li class="list-group-item">Phone: 0673338778</li>
-              </ul>
+          <div class="col-md-6">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th width="30%">student card</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>birth date</td>
+                    <td>{{ students.date_of_birth }}</td>
+                  </tr>
+                  <tr>
+                    <td>address</td>
+                    <td>{{ students.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>{{ students.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>login skype</td>
+                    <td>{{ students.skype }}</td>
+                  </tr>
+                  <tr>
+                    <td>phone</td>
+                    <td>{{ students.phone }}</td>
+                  </tr>
+                  <tr>
+                    <td>courses</td>
+                    <td>
+                      {% for course in students.courses.all %}
+                      <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Founder</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Max Payne</li>
-                <li class="list-group-item">Skype: madmax</li>
-                <li class="list-group-item">Email: madmax@gmail.com</li>
-                <li class="list-group-item">Phone: 0669996666</li>
-              </ul>
-            </div>
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Manager</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Mary Monahova</li>
-                <li class="list-group-item">Skype: mary777</li>
-                <li class="list-group-item">Email: mary@gmail.com</li>
-                <li class="list-group-item">Phone: 0501346549</li>
-              </ul>
-            </div>
+          </div>
+          <div class="col-md-6">
           </div>
         </div>
       </div>
-      <div class="clear"></div>
+      <div class="clear">
+      </div>
     </div>
   </div>
   <footer>
