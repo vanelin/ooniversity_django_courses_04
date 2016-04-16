@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 
-from courses import views
+from coaches import views
 
 urlpatterns = patterns('',
-                       url(r'^(?P<course_id>\d+)/$',
+                       url(r'^(?P<coach_id>\d+)/$',
                            views.detail, name='detail'),
                        )

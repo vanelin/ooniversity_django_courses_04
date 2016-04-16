@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa Description</title>
-    <meta name="description" content="PyBursa detail">
+    <title>PyBursa detail info Coaches</title>
+    <meta name="description" content="Detail information about students">
     {% load staticfiles %}
     <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
     <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
@@ -48,10 +48,9 @@
         </div>
           <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav nav-pills">
-              <!-- <li class="active"> <a href="/">Main</a> </li> -->
-              <li class="active"> <a href="{% url 'index' %}">Main</a> </li>
+              <li> <a href="{% url 'index' %}">Main</a> </li>
               <li> <a href="{% url 'contact' %}">Contacts</a> </li>
-              <li> <a href="{% url 'students:list_view' %}?course_id={{course.id}}">Students</a> </li>
+              <li> <a href="{% url 'students:list_view' %}">Students</a> </li>
               <li> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
             </ul>
           </div>
@@ -63,57 +62,71 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="entery-content">
-            <h1 class="entery-title" id="program-course-to-python">{{ course.name }}</h1>
-            <div class="subheading">
-              <p class="lead emotional" id="program-course-to-python">{{ course.description }}</p>
+          <h1 class="entery-title-page2">{{ coaches.name }} {{ coaches.last_name }}</h1>
+          <hr>
+          <div class="col-md-6">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th width="30%">coach card</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>birth date</td>
+                    <td>{{ coaches.date_of_birth }}</td>
+                  </tr>
+                  <tr>
+                    <td>address</td>
+                    <td>{{ coaches.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>{{ coaches.user.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>login skype</td>
+                    <td>{{ coaches.skype }}</td>
+                  </tr>
+                  <tr>
+                    <td>phone</td>
+                    <td>{{ coaches.phone }}</td>
+                  </tr>
+                  {% if coaches.coach_courses.all|length > 0 %}
+                  <tr>
+                    <td>coach courses</td>
+                    <td>
+                      {% for i in coaches.coach_courses.all %}
+                        <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a> 
+                        course's students <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
+                        <span class="glyphicon glyphicon-share"></span></a><br>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                  {% endif %}
+                  {% if coaches.assistant_courses.all|length > 0 %}
+                  <tr>
+                    <td>assistant courses</td>
+                    <td>
+                      {% for i in coaches.assistant_courses.all %}
+                        <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a> 
+                        course's students <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
+                        <span class="glyphicon glyphicon-share"></span></a><br>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
             </div>
-            <hr>
-            <h2>Coaches</h2>
-            <div class="panel panel-default">
-              <div class="panel-heading">Coach</div>
-              <div class="panel-body">
-                <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.name }} {{ course.coach.last_name }}</a><br>
-                {{ course.coach.description }}
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">Assistant</div>
-              <div class="panel-body">
-                <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.name }} {{ course.assistant.last_name }}</a><br>
-                {{ course.assistant.description }}
-              </div>
-            </div>
-            <hr>
-            <h2>Course plan</h2>
           </div>
-          <div class="r ow">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th width="3%">#</th>
-                  <th width="20%">Subject</th>
-                  <th width="30%">Description</th>
-                 </tr>
-              </thead>
-              <tbody>
-              {% for lesson in lesson %}
-                <tr>
-                  <td>{{ lesson.order }}</td>
-                  <td>{{ lesson.subject }}</td>
-                  <td>{{ lesson.description|linebreaksbr }}</td>
-                </tr>
-              {% endfor %}
-              </tbody>
-            </table>
-            </div>
-            <div class="col-md-2"></div>
+          <div class="col-md-6">
           </div>
         </div>
       </div>
-      <div class="clear"></div>
+      <div class="clear">
+      </div>
     </div>
   </div>
   <footer>
@@ -128,4 +141,3 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
-
