@@ -12,14 +12,18 @@
 
 {% block page_main_header %}Квадратное уравнение a*x*x+b*x+c=0{% endblock %}
 
+
 {% block content %}
 <div class="col-lg-12">
   <form method="get">
-    {{form.as_p}}
+    {{ form.as_p }}
     <button type="submit" class="btn btn-default">Решить</button>
   </form>
   <hr>
-  <div>{{result|linebreaksbr}}</div>
+  <div>
+    <p>{{ discriminant }}</p>
+    <p>{{ result }}</p>
+  </div>
 </div>
 {% endblock content %}
 
