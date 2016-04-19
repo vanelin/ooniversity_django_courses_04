@@ -1,9 +1,6 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 import math
-
 from django.shortcuts import render
-from django.http import HttpResponse
 from quadratic.forms import QuadraticForm
 
 
@@ -25,8 +22,8 @@ def quadratic_results(request):
                 x1 = float((-b+math.sqrt(d))/2*a)
                 x2 = float((-b-math.sqrt(d))/2*a)
                 result = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (round(x1, 1), round(x2, 1))
-            return render(request, 'quadratic/results.html', locals())
+            return render(request, 'quadratic/results.html', {'form': form, 'result':result, 'discriminant': discriminant})
         else:
-            return render(request, 'quadratic/results.html', locals())
+            return render(request, 'quadratic/results.html', {'form': form})
     form = QuadraticForm()
     return render(request, 'quadratic/results.html', {'form': form})
