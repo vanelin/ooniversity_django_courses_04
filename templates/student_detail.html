@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}PyBursa Organizers{% endblock title %}
+{% block title %}PyBursa students detail{% endblock title %}
 
 
 {% block nav_class_contact %}active{% endblock %}
@@ -10,7 +10,7 @@
 {% block page_main_header %}Makhno Yuryi{% endblock %}
 
 
-{% block main_content %}
+{% block content %}
 <div class="col-lg-12">
   <div class="col-md-6">
     <img src="../static/images/Makhno.png" class="img-responsive" alt="photo" width="150" height="75">
@@ -137,4 +137,4 @@
   </div>
 </div>
 <a href="{% url 'student_list' %}" class="btn btn-info" role="button" style="margin-left: 28px;">Back</a>
-{% endblock main_content %}
+{% endblock content %}
