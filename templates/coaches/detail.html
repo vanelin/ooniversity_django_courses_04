@@ -1,4 +1,7 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
 
 
 {% block title %}PyBursa detail info Coaches{% endblock title %}
@@ -7,64 +10,66 @@
 {% block page_main_header %}{{ coaches.name }} {{ coaches.last_name }}{% endblock %}
 
 
-{% block page_content %}
-<div class="col-md-6">
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th width="30%">coach card</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>birth date</td>
-          <td>{{ coaches.date_of_birth|date:'j F, Y'  }}</td>
-        </tr>
-        <tr>
-          <td>address</td>
-          <td>{{ coaches.address }}</td>
-        </tr>
-        <tr>
-          <td>email</td>
-          <td>{{ coaches.user.email }}</td>
-        </tr>
-        <tr>
-          <td>login skype</td>
-          <td>{{ coaches.skype }}</td>
-        </tr>
-        <tr>
-          <td>phone</td>
-          <td>{{ coaches.phone }}</td>
-        </tr>
-        {% if coaches.coach_courses.all|length > 0 %}
-        <tr>
-          <td>coach courses</td>
-          <td>
-            {% for i in coaches.coach_courses.all %}
-              <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a>
-              course's students <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
-              <span class="glyphicon glyphicon-share"></span></a><br>
-            {% endfor %}
-          </td>
-        </tr>
-        {% endif %}
-        {% if coaches.assistant_courses.all|length > 0 %}
-        <tr>
-          <td>assistant courses</td>
-          <td>
-            {% for i in coaches.assistant_courses.all %}
-              <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a>
-              course's students <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
-              <span class="glyphicon glyphicon-share"></span></a><br>
-            {% endfor %}
-          </td>
-        </tr>
-        {% endif %}
-      </tbody>
-    </table>
+{% block content %}
+<div class="col-lg-12">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="30%">coach card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>birth date</td>
+            <td>{{ coaches.date_of_birth|date:'j F, Y'  }}</td>
+          </tr>
+          <tr>
+            <td>address</td>
+            <td>{{ coaches.address }}</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>{{ coaches.user.email }}</td>
+          </tr>
+          <tr>
+            <td>login skype</td>
+            <td>{{ coaches.skype }}</td>
+          </tr>
+          <tr>
+            <td>phone</td>
+            <td>{{ coaches.phone }}</td>
+          </tr>
+          {% if coaches.coach_courses.all|length > 0 %}
+          <tr>
+            <td>coach courses</td>
+            <td>
+              {% for i in coaches.coach_courses.all %}
+                <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a>
+                course's students <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
+                <span class="glyphicon glyphicon-share"></span></a><br>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endif %}
+          {% if coaches.assistant_courses.all|length > 0 %}
+          <tr>
+            <td>assistant courses</td>
+            <td>
+              {% for i in coaches.assistant_courses.all %}
+                <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a>
+                course's students <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
+                <span class="glyphicon glyphicon-share"></span></a><br>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6">
   </div>
 </div>
-<div class="col-md-6">
-</div>
-{% endblock page_content %}
+{% endblock content %}

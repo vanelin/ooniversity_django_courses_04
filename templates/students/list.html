@@ -1,11 +1,21 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa students list{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock %}
 
 
 {% block page_main_header %}List students PyBursa{% endblock %}
 
 
-{% block page_content %}
-<div class="table-responsive">
+{% block content %}
+<div class="col-lg-12">
+  <div class="table-responsive">
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -34,4 +44,5 @@
     </tbody>
   </table>
 </div>
-{% endblock page_content %}
+</div>
+{% endblock content %}
