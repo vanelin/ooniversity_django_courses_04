@@ -1,113 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa Organizers </title>
-    <meta name="description" content="Info about PyBursa organizers.">
-    <meta name="keywords" content="Bursa PyBursa">
-    {% load staticfiles %}
-    <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
-    <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
-    <!-- Bootstrap -->
-    <!-- <link href="../static/css/bootstrap.css" rel="stylesheet"> -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
-    <!-- Main Style -->
-    <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-  <div class="container-fluid">
-    <div class="row">
-     <nav role="navigation" class="navbar navbar-inverse">
-        <div class="container">
-        <div class="navbar-header header">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <h1><a href="http://pybursa.com/">Python|Django</a></h1>
-                <p>Professional courses!</p>
-              </div>
-            </div>
-          </div>
-          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-          <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
-            <ul class="nav nav-pills">
-              <li> <a href="{% url 'index' %}">Main</a> </li>
-              <li class="active"> <a href="{% url 'contact' %}">Contacts</a> </li>
-              <li> <a href="{% url 'students:list_view' %}">Students</a> </li>
-              <li> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
-            </ul>
-          </div>
-        </div>
-     </nav>
+{% block title %}PyBursa Organizers{% endblock title %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block page_main_header %}PyBursa organizers{% endblock %}
+
+
+{% block main_content %}
+<div class="col-lg-12">
+  <div class="row">
+    <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="position"><h3>Director</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Name: Ivan Voloboev</li>
+        <li class="list-group-item">Skype: vanelin</li>
+        <li class="list-group-item">Email: voloboev@gmail.com</li>
+        <li class="list-group-item">Phone: 0673338778</li>
+      </ul>
+    </div>
+    <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="position"><h3>Founder</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Name: Max Payne</li>
+        <li class="list-group-item">Skype: madmax</li>
+        <li class="list-group-item">Email: madmax@gmail.com</li>
+        <li class="list-group-item">Phone: 0669996666</li>
+      </ul>
+    </div>
+    <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="position"><h3>Manager</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Name: Mary Monahova</li>
+        <li class="list-group-item">Skype: mary777</li>
+        <li class="list-group-item">Email: mary@gmail.com</li>
+        <li class="list-group-item">Phone: 0501346549</li>
+      </ul>
     </div>
   </div>
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="entery-title-page2">PyBursa organizers</h1>
-          <hr>
-          <div class="row">
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Director</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Ivan Voloboev</li>
-                <li class="list-group-item">Skype: vanelin</li>
-                <li class="list-group-item">Email: voloboev@gmail.com</li>
-                <li class="list-group-item">Phone: 0673338778</li>
-              </ul>
-            </div>
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Founder</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Max Payne</li>
-                <li class="list-group-item">Skype: madmax</li>
-                <li class="list-group-item">Email: madmax@gmail.com</li>
-                <li class="list-group-item">Phone: 0669996666</li>
-              </ul>
-            </div>
-            <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="position"><h3>Manager</h3></div>
-              <ul class="list-group">
-                <li class="list-group-item">Name: Mary Monahova</li>
-                <li class="list-group-item">Skype: mary777</li>
-                <li class="list-group-item">Email: mary@gmail.com</li>
-                <li class="list-group-item">Phone: 0501346549</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <p class="text-center">© 2016|Developed by Ivan</p>
-    </div>
-  </foote
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="../static/js/bootstrap.js"></script> -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+</div>
+{% endblock main_content %}

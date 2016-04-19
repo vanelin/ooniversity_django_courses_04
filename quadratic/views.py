@@ -4,6 +4,14 @@ import math
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django import forms
+
+
+class QuadraticForm(forms.Form):
+    """docstring for QuadraticForm"""
+    a = forms.FloatField(widget=forms.TextInput({ "placeholder": "Enter a"}))
+    b = forms.FloatField(widget=forms.TextInput({ "placeholder": "Enter b"}))
+    c = forms.FloatField(widget=forms.TextInput({ "placeholder": "Enter c"}))
 
 
 def valid(arg, flag=False, flag_error=True):
@@ -26,13 +34,13 @@ def valid(arg, flag=False, flag_error=True):
 
 
 def quadratic_results(request):
+    form = QuadraticForm()
     if request.GET:
         a = valid(request.GET['a'], flag=True)
         b = valid(request.GET['b'])
         c = valid(request.GET['c'])
         if a[2] and b[2] and c[2]:
             d = b[0]**2-4*a[0]*c[0]  # discriminant
-
             if d < 0:
                 result = "Дискриминант: %d \nДискриминант меньше нуля, квадратное уравнение не имеет действительных решений." % (
                     d)
@@ -49,7 +57,7 @@ def quadratic_results(request):
         else:
             return render(request, 'results.html', locals())
     else:
-        a = ('None', '',)
-        b = ('None', '',)
-        c = ('None', '',)
+        a = ('коэффициент не определен', '',)
+        b = ('коэффициент не определен', '',)
+        c = ('коэффициент не определен', '',)
         return render(request, 'results.html', locals())

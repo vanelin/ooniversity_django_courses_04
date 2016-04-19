@@ -1,208 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa detail info Student</title>
-    <meta name="description" content="Detail information about students">
-    {% load staticfiles %}
-    <!-- <link rel="icon" type="image/png" href="../static/images/django-icon.png" /> -->
-    <link rel="icon" type="image/png" href="{% static 'images/django-icon.png' %}" />
-    <!-- Bootstrap -->
-    <!-- <link href="../static/css/bootstrap.css" rel="stylesheet"> -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
-    <!-- Main Style -->
-    <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-  <div class="container-fluid">
-    <div class="row">
-     <nav role="navigation" class="navbar navbar-inverse">
-        <div class="container">
-        <div class="navbar-header header">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <h1><a href="http://pybursa.com/">Python|Django</a></h1> 
-                <p>Professional courses!</p>
-              </div>
-            </div>
-          </div>
-          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-          <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
-            <ul class="nav nav-pills">
-              <li> <a href="{% url 'index' %}">Main</a> </li>
-              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
-              <li class="active"> <a href="{% url 'student_list' %}">Students</a> </li>
-              <li> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
-            </ul>
-          </div>
-        </div>
-     </nav> 
+{% block title %}PyBursa Organizers{% endblock title %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block page_main_header %}Makhno Yuryi{% endblock %}
+
+
+{% block main_content %}
+<div class="col-lg-12">
+  <div class="col-md-6">
+    <img src="../static/images/Makhno.png" class="img-responsive" alt="photo" width="150" height="75">
+    <br>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="30%">Student card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Surname</td>
+            <td>Makhno</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Yuryi</td>
+          </tr>
+          <tr>
+            <td>Patronymic</td>
+            <td>Aleksandrovich  </td>
+          </tr>
+          <tr>
+            <td>Birth Date</td>
+            <td>24-08-1988</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>Ukrain, Kiev, ul. Berezhanskaya, 9</td>
+          </tr>
+          <tr>
+            <td>E-mail</td>
+            <td>makhno_y@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Skype</td>
+            <td>makhno_y</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="entery-title-page2">Makhno Yuryi</h1>
-          <hr>
-          <div class="col-md-6">
-            <img src="../static/images/Makhno.png" class="img-responsive" alt="photo" width="150" height="75">
-            <br>
-            <div class="table-responsive"> 
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th width="30%">Student card</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Surname</td>
-                    <td>Makhno</td>
-                  </tr>
-                  <tr>
-                    <td>Name</td>
-                    <td>Yuryi</td>
-                  </tr>
-                  <tr>
-                    <td>Patronymic</td>
-                    <td>Aleksandrovich  </td>
-                  </tr>
-                  <tr>
-                    <td>Birth Date</td>
-                    <td>24-08-1988</td>
-                  </tr>
-                  <tr>
-                    <td>Address</td>
-                    <td>Ukrain, Kiev, ul. Berezhanskaya, 9</td>
-                  </tr>
-                  <tr>
-                    <td>E-mail</td>
-                    <td>makhno_y@gmail.com</td>
-                  </tr>
-                  <tr>
-                    <td>Skype</td>
-                    <td>makhno_y</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <p class="lead emotional">Perfomance: Introduction to Python</p>
-            <ul class="task-list list-unstyled">
-              <li>
-                <p>Problem Task <span class="label label-danger">23%</span></p>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
-                  </div>
-                </div>
-              </li>
-              <li>
-                <p>Tests<span class="label label-warning">60%</span></p>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                  </div>
-                </div>
-              </li>
-              <li>
-                <p>Average Grade <span class="label label-success">93%</span></p>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
-                  </div>
-                </div>
-              </li>
-              <li>
-                <p>Rating<span class="label label-warning">GOOD</span></p>       
-                <div class="progress">
-                  <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
-                    BAD
-                  </div>
-                  <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
-                    GOOD
-                  </div>
-                  <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
-                    EXCELLENT
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-            <div class="col-md-6">
-            <p class="lead emotional">Perfomance: Web Development with Python</p>
-            <ul class="task-list list-unstyled">
-              <li>
-                <p>Problem Task <span class="label label-danger">23%</span></p>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
-                  </div>
-                </div>
-              </li>
-              <li>
-                <p>Tests<span class="label label-warning">60%</span></p>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                  </div>
-                </div>
-              </li>
-              <li>
-                <p>Average Grade <span class="label label-success">93%</span></p>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
-                  </div>
-                </div>
-              </li>
-              <li>
-                <p>Rating<span class="label label-danger">BAD</span></p>       
-                <div class="progress">
-                  <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
-                    BAD
-                  </div>
-                  <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
-                    GOOD
-                  </div>
-                  <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
-                    EXCELLENT
-                  </div>
-                </div>
-              </li>
-            </ul>
+  <div class="col-md-6">
+    <p class="lead emotional">Perfomance: Introduction to Python</p>
+    <ul class="task-list list-unstyled">
+      <li>
+        <p>Problem Task <span class="label label-danger">23%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
           </div>
         </div>
-        <a href="{% url 'student_list' %}" class="btn btn-info" role="button" style="margin-left: 28px;">Back</a>
-      </div>
-      <div class="clear">
-      </div>
-    </div>
+      </li>
+      <li>
+        <p>Tests<span class="label label-warning">60%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Average Grade <span class="label label-success">93%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Rating<span class="label label-warning">GOOD</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
+            BAD
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
+            GOOD
+          </div>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
+            EXCELLENT
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
-  <footer>
-    <div class="container">
-      <p class="text-center">© 2016|Developed by Ivan</p>
-    </div>
-  </foote
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="../static/js/bootstrap.js"></script> -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+    <div class="col-md-6">
+    <p class="lead emotional">Perfomance: Web Development with Python</p>
+    <ul class="task-list list-unstyled">
+      <li>
+        <p>Problem Task <span class="label label-danger">23%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Tests<span class="label label-warning">60%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Average Grade <span class="label label-success">93%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Rating<span class="label label-danger">BAD</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
+            BAD
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
+            GOOD
+          </div>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
+            EXCELLENT
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<a href="{% url 'student_list' %}" class="btn btn-info" role="button" style="margin-left: 28px;">Back</a>
+{% endblock main_content %}
