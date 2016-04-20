@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import math
 from django.shortcuts import render
-from quadratic.forms import QuadraticForm
+from forms import QuadraticForm
 
 
 def quadratic_results(request):
@@ -21,7 +21,7 @@ def quadratic_results(request):
             else:
                 x1 = (-b+math.sqrt(d))/2*a
                 x2 = (-b-math.sqrt(d))/2*a
-            text_result = {'discriminant': d, 'x': x, 'x1': x1, 'x2': x2}
+            text_result.update({'discriminant': d, 'x': x, 'x1': x1, 'x2': x2})
     else:
         form = QuadraticForm()
     text_result.update({'form': form})
