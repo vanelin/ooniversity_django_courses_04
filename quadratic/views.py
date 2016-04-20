@@ -5,6 +5,7 @@ from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
+    text_result = {}
     if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
@@ -12,18 +13,21 @@ def quadratic_results(request):
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
             d = b**2-4*a*c  # discriminant
-            discriminant = "Дискриминант: %s" % (d)
+            discriminant = u"Дискриминант: %s" % (d)
             if d < 0:
-                result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+                result = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
             elif d == 0:
                 x = (-b+math.sqrt(d))/2.0*a
-                result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % (round(x, 1))
+                result = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % (
+                    round(x, 1))
             else:
                 x1 = float((-b+math.sqrt(d))/2*a)
                 x2 = float((-b-math.sqrt(d))/2*a)
-                result = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (round(x1, 1), round(x2, 1))
-            return render(request, 'quadratic/results.html', {'form': form, 'result':result, 'discriminant': discriminant})
-        else:
-            return render(request, 'quadratic/results.html', {'form': form})
-    form = QuadraticForm()
-    return render(request, 'quadratic/results.html', {'form': form})
+                result = u"Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (
+                    round(x1, 1), round(x2, 1))
+            text_result = {
+                'form': form, 'result': result, 'discriminant': discriminant}
+    else:
+        form = QuadraticForm()
+    text_result.update({'form': form})
+    return render(request, 'quadratic/results.html', text_result)
