@@ -10,20 +10,24 @@
 {% block nav_class_quadratic_results %}active{% endblock %}
 
 
-{% block page_main_header %}Квадратное уравнение a*x*x+b*x+c=0{% endblock %}
+{% block page_main_header %}Решение квадратного уравнения{% endblock %}
 
 
 {% block content %}
 <div class="col-lg-12">
+  <p>Квадратное уравнение a*x*x+b*x+c=0</p>
   <form method="get">
     {{ form.as_p }}
     <button type="submit">Решить</button>
   </form>
   <hr>
-  <div>
-    <p>{{ discriminant }}</p>
-    <p>{{ result }}</p>
-  </div>
+  {% if discriminant != None %}
+  <p>Дискриминант: {{ discriminant }}</p>
+  {% if discriminant > 0 %}Квадратное уравнение имеет два действительных корня: x1 = {{ x1|floatformat:1 }}, x2 = {{ x2|floatformat:1 }}<br>
+  {% elif discriminant == 0 %}Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x|floatformat:1 }}<br>
+  {% else %}Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br>
+  {% endif %}
+  {% endif %}
 </div>
 {% endblock content %}
 

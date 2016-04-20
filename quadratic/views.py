@@ -6,6 +6,7 @@ from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     text_result = {}
+    d = x = x1 = x2 = None
     if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
@@ -13,20 +14,14 @@ def quadratic_results(request):
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
             d = b**2-4*a*c  # discriminant
-            discriminant = u"Дискриминант: %s" % (d)
             if d < 0:
-                result = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+                d = d
             elif d == 0:
-                x = (-b+math.sqrt(d))/2.0*a
-                result = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % (
-                    round(x, 1))
+                x = (-b+math.sqrt(d))/2*a
             else:
-                x1 = float((-b+math.sqrt(d))/2*a)
-                x2 = float((-b-math.sqrt(d))/2*a)
-                result = u"Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (
-                    round(x1, 1), round(x2, 1))
-            text_result = {
-                'form': form, 'result': result, 'discriminant': discriminant}
+                x1 = (-b+math.sqrt(d))/2*a
+                x2 = (-b-math.sqrt(d))/2*a
+            text_result = {'discriminant': d, 'x': x, 'x1': x1, 'x2': x2}
     else:
         form = QuadraticForm()
     text_result.update({'form': form})
