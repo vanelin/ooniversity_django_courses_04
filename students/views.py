@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.shortcuts import get_object_or_404
+
 from students.models import Student
 from students.forms import StudentModelForm
-from django.contrib import messages
+
 
 
 def list_view(request):
@@ -15,7 +18,7 @@ def list_view(request):
 
 
 def detail(request, student_id):
-    student = Student.objects.get(id=student_id)
+    student = get_object_or_404(Student,id=student_id)
     return render(request, 'students/detail.html', {'students': student})
 
 
@@ -35,11 +38,11 @@ def students_add(request):
 
 
 def students_edit(request, student_id):
-    application = Student.objects.get(id=student_id)
+    application = get_object_or_404(Student, id=student_id)
     if request.method == 'POST':
         form = StudentModelForm(request.POST, instance=application)
         if form.is_valid():
-            application = form.save()
+            form.save()
             msg = u'Info on the student has been sucessfully changed.'
             messages.success(request, msg)
     else:
@@ -48,13 +51,11 @@ def students_edit(request, student_id):
 
 
 def students_remove(request, student_id):
-    application = Student.objects.get(id=student_id)
+    application = get_object_or_404(Student, id=student_id)
     if request.method == 'POST':
         application.delete()
-        msg = u'Info on %s %s has been sucessfully deleted.' % (
-            application.name, application.surname)
+        msg = u'Info on %s %s has been sucessfully deleted.' % (application.name, application.surname)
         messages.success(request, msg)
         return redirect('students:list_view')
-    notice = u'The student %s %s will be removed' % (
-        application.name, application.surname)
+    notice = u'The student %s %s will be removed' % (application.name, application.surname)
     return render(request, 'students/remove.html', {'notice': notice})
