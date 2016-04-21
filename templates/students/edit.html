@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa edit Students{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock %}
+
+
+{% block page_main_header %}The edit data student{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+{% if messages %}
+<div class="alert alert-success">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</div>
+{% endif %}
+  <form method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Change</button>
+  </form>
+</div>
+{% endblock content %}

@@ -15,13 +15,24 @@
 
 {% block content %}
 <div class="col-lg-12">
+
+{% if messages %}
+<div class="alert alert-success">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</div>
+{% endif %}
+  <a href="{% url 'students:add' %}" class="btn btn-info" role="button">
+  <span class="glyphicon glyphicon-plus"></span>Add new student</a>
+  <p></p>
   <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
         <th width="5%">#</th>
         <th>Surname Name</th>
-        <th width="40%">Address</th>
+        <th width="35%">Address</th>
         <th>skype</th>
         <th>Courses</th>
       </tr>
@@ -38,6 +49,14 @@
          {% for course in item.courses.all %}
         <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
         {% endfor %}
+        </td>
+        <td>
+          <a style="color:green;" href="{% url 'students:edit' item.id %}">
+          <span class="glyphicon glyphicon-pencil"></span>edit</a><br>
+        </td>
+        <td>
+          <a style="color:red;" href="{% url 'students:remove' item.id %}">
+          <span class="glyphicon glyphicon-remove"></span>remove</a><br>
         </td>
       </tr>
     {% endfor %}
