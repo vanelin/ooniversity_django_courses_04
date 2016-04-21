@@ -23,7 +23,7 @@
 </div>
 {% endif %}
   <a href="{% url 'students:add' %}" class="btn btn-info" role="button">
-  <span class="glyphicon glyphicon-plus"></span>Add new student</a>
+  <span class="glyphicon glyphicon-plus"></span>Добавить нового студента</a>
   <p></p>
   <div class="table-responsive">
   <table class="table table-bordered table-striped">
@@ -51,11 +51,11 @@
         </td>
         <td>
           <a style="color:green;" href="{% url 'students:edit' item.id %}">
-          <span class="glyphicon glyphicon-pencil"></span>edit</a><br>
+          <span class="glyphicon glyphicon-pencil"></span>Изменить</a><br>
         </td>
         <td>
           <a style="color:red;" href="{% url 'students:remove' item.id %}">
-          <span class="glyphicon glyphicon-remove"></span>remove</a><br>
+          <span class="glyphicon glyphicon-remove"></span>Удалить</a><br>
         </td>
       </tr>
     {% endfor %}

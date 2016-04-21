@@ -10,15 +10,15 @@
 {% block nav_class_students %}active{% endblock %}
 
 
-{% block page_main_header %}The creation of a new student{% endblock %}
+{% block page_main_header %}Создание нового студента{% endblock %}
 
 
 {% block content %}
 <div class="col-lg-12">
   <form method="post">
-  {% csrf_token %}
+    {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Create</button>
+    <input type="submit" class="btn btn-success" value="Создать" />
   </form>
 </div>
 {% endblock content %}
