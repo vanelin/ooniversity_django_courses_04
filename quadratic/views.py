@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import math
+
 from django.shortcuts import render
+
 from forms import QuadraticForm
 
 

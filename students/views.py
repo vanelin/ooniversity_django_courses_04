@@ -48,16 +48,6 @@ def edit(request, student_id):
 
 
 def remove(request, student_id):
-    new_student = Student.objects.get(id=student_id)
-    if request.method == 'POST':
-        new_student.delete()
-        new_message = u"Info on %s %s has been sucessfully deleted." % (new_student.name, new_student.surname)
-        messages.success(request, new_message)
-        return redirect("students:list_view")
-    return render(request, "students/remove.html", {'name': new_student.name, 'surname': new_student.surname})
-
-
-def remove(request, student_id):
     application = get_object_or_404(Student, id=student_id)
     if request.method == 'POST':
         application.delete()
