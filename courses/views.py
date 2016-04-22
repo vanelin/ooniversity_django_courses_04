@@ -26,8 +26,8 @@ def add(request):
     return render(request, 'courses/add.html', {'form': form})
 
 
-def edit(request, student_id):
-    application = get_object_or_404(Student, id=student_id)
+def edit(request, course_id):
+    application = get_object_or_404(Course, id=student_id)
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=application)
         if form.is_valid():
@@ -38,8 +38,8 @@ def edit(request, student_id):
     return render(request, 'courses/edit.html', {'form': form})
 
 
-def remove(request, student_id):
-    application = get_object_or_404(Student, id=student_id)
+def remove(request, course_id):
+    application = get_object_or_404(Course, id=student_id)
     if request.method == 'POST':
         application.delete()
         msg = u"Course %s has been deleted." % (application.name)

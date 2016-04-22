@@ -20,6 +20,6 @@ class QuadraticForm(forms.Form):
     # def clean_a(self):
     #     data = self.cleaned_data['a']
     #     if data == 0:
-            # msg = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
-            # self.add_error('a', msg)
+    #         msg = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
+    #         self.add_error('a', msg)
     #     return data
