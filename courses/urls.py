@@ -11,4 +11,6 @@ urlpatterns = patterns('',
                            views.edit, name='edit'),
                        url(r'^remove/(?P<course_id>\d+)/$',
                            views.remove, name='remove'),
+                       url(r'^(?P<course_id>\d+)/add_lesson$',
+                           views.add_lesson, name='add-lesson'),
                        )
