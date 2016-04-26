@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa detail info Students{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock %}
+
+
+{% block page_main_header %}{{ object.name }} {{ object.surname }}{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="30%">student card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>birth date</td>
+            <td>{{ object.date_of_birth }}</td>
+          </tr>
+          <tr>
+            <td>address</td>
+            <td>{{ object.address }}</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>{{ object.email }}</td>
+          </tr>
+          <tr>
+            <td>login skype</td>
+            <td>{{ object.skype }}</td>
+          </tr>
+          <tr>
+            <td>phone</td>
+            <td>{{ object.phone }}</td>
+          </tr>
+          <tr>
+            <td>courses</td>
+            <td>
+              {% for course in object.courses.all %}
+              <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+              {% endfor %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+{% endblock content %}
