@@ -55,6 +55,7 @@ class StudentUpdateView(UpdateView):
     """docstring for StudentUpdateView"""
     model = Student
     template_name_suffix = '_update_form'
+    success_url = reverse_lazy('students:edit')
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)

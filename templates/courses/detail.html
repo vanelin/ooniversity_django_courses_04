@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Information about the courses{% endblock title %}
+{% block title %}{{ page_title }}{% endblock title %}
 
 
 {% block course_students %}?course_id={{ course.id }}{% endblock %}
@@ -30,7 +30,7 @@
 {% include "include/instructor_include.html" with block_title="Coach" instructor=course.coach %}
 {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
     <hr>
-    <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-info" role="button">
+    <a href="{% url 'courses:add-lesson' object.id %}" class="btn btn-info" role="button">
     <span class="glyphicon glyphicon-plus"></span>Add a new lessons</a>
     <h2>Course plan</h2>
     <p></p>
@@ -47,7 +47,7 @@
          </tr>
       </thead>
       <tbody>
-      {% for lesson in lesson %}
+      {% for lesson in lessons %}
         <tr>
           <td>{{ lesson.order }}</td>
           <td>{{ lesson.subject }}</td>

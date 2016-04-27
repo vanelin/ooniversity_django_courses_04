@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa remove Course{% endblock title %}
+{% block title %}{{ title }} - PyBursa{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock %}
@@ -24,7 +24,7 @@
   {% endif %}
   <form method="post">
   {% csrf_token %}
-  <p><input type="submit" value="Удалить"></p>
+  <p><input type="submit" class="btn btn-danger" value="Удалить"></p>
   </form>
 </div>
 {% endblock content %}
