@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,3 +91,13 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = 1025
+
+ADMINS = (
+    ('admin', "admin@admin.com"),
+    ('admin2', "admin2@admin.com"))
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
