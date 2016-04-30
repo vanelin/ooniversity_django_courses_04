@@ -15,6 +15,8 @@ class StudentListView(ListView):
 
     """docstring for StudentListView"""
     model = Student
+    paginate_by = 2
+    # context_object_name = 'student'
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
