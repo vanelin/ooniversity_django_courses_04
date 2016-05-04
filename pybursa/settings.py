@@ -101,3 +101,42 @@ ADMINS = (
     ('admin2', "admin2@admin.com"))
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+            },
+        },
+    'handlers': {
+        'courses_logger': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple',
+        },
+        'students_logger': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_logger'],
+            'level': 'DEBUG',
+            # 'propagate': True,
+        },
+        'students': {
+            'handlers': ['students_logger'],
+            'level': 'WARNING',
+            # 'propagate': True,
+        },
+    },
+}

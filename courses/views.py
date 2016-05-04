@@ -10,6 +10,9 @@ from django.core.urlresolvers import reverse_lazy
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
+import logging
+logger = logging.getLogger(__name__)
+
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = 'course'
@@ -20,6 +23,10 @@ class CourseDetailView(DetailView):
         context['page_title'] = u"Course detail"
         # context["lessons"] = self.object.lesson_set.all()
         context["lessons"] = Lesson.objects.filter(course_id = self.object)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
         return context
 
 

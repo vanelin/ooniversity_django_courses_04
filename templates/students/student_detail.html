@@ -4,13 +4,13 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa detail info Students{% endblock title %}
+{% block title %}{{ title }} - PyBursa{% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock %}
 
 
-{% block page_main_header %}{{ object.name }} {{ object.surname }}{% endblock %}
+{% block page_main_header %}{{ student.name }} {{ student.surname }}{% endblock %}
 
 
 {% block content %}
@@ -26,28 +26,28 @@
         <tbody>
           <tr>
             <td>birth date</td>
-            <td>{{ object.date_of_birth }}</td>
+            <td>{{ student.date_of_birth }}</td>
           </tr>
           <tr>
             <td>address</td>
-            <td>{{ object.address }}</td>
+            <td>{{ student.address }}</td>
           </tr>
           <tr>
             <td>email</td>
-            <td>{{ object.email }}</td>
+            <td>{{ student.email }}</td>
           </tr>
           <tr>
             <td>login skype</td>
-            <td>{{ object.skype }}</td>
+            <td>{{ student.skype }}</td>
           </tr>
           <tr>
             <td>phone</td>
-            <td>{{ object.phone }}</td>
+            <td>{{ student.phone }}</td>
           </tr>
           <tr>
             <td>courses</td>
             <td>
-              {% for course in object.courses.all %}
+              {% for course in student.courses.all %}
               <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
               {% endfor %}
             </td>
