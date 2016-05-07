@@ -27,8 +27,12 @@
 {% endif %}
   <div class="entery-content">
     <h2>Coaches</h2>
-{% include "include/instructor_include.html" with block_title="Coach" instructor=course.coach %}
-{% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
+{% if course.coach %}
+  {% include "include/instructor_include.html" with block_title="Coach" instructor=course.coach %}
+{% endif %}
+{% if course.assistant %}
+  {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
+{% endif %}
     <hr>
     <a href="{% url 'courses:add-lesson' object.id %}" class="btn btn-info" role="button">
     <span class="glyphicon glyphicon-plus"></span>Add a new lessons</a>
