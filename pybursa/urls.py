@@ -4,8 +4,10 @@ from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail
 from feedbacks.views import FeedbackView
 
-handler404 = 'pybursa.views.my_custom_page_not_found_view'
-handler500 = 'pybursa.views.my_custom_error_view'
+
+handler404 = 'pybursa.views.custom_404_server_error'
+handler500 = 'pybursa.views.custom_500_server_error'
+
 
 urlpatterns = patterns('',
                        url(r'^$', index, name='index'),
