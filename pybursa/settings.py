@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -20,11 +19,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'xz*d7@h8$$vumk1u%%*5kqutet577%(6jq3_6d047mh!+jix1-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -98,7 +97,8 @@ EMAIL_PORT = 1025
 
 ADMINS = (
     ('admin', "admin@admin.com"),
-    ('admin2', "admin2@admin.com"))
+    ('admin2', "admin2@admin.com"),
+    ('Nikolay", "nikolay.borovenskiy@gmail.com'))
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -140,3 +140,12 @@ LOGGING = {
         },
     },
 }
+
+# Allow any settings to be defined in local_settings.py which should be
+# ignored in your version control system allowing for settings to be
+# defined per machine.
+
+# try:
+#     from local_settings import *
+# except ImportError:
+#     print "Warning! local_settings are not defined!"
