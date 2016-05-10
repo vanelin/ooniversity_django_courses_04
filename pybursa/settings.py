@@ -97,7 +97,6 @@ EMAIL_PORT = 1025
 
 ADMINS = (
     ('admin', "admin@admin.com"),
-    ('admin2', "admin2@admin.com"),
     ('Nikolay", "nikolay.borovenskiy@gmail.com'))
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

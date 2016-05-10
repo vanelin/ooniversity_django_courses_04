@@ -28,6 +28,11 @@ class StudentListView(ListView):
             students = Student.objects.all()
         return students
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        context['course_id'] = self.request.GET.get('course_id', None)
+        return context
+
 
 class StudentDetailView(DetailView):
 
